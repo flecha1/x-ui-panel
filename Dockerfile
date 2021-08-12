@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 FROM ubuntu:21.04
 
 CMD ["bash"]
@@ -32,3 +33,18 @@ RUN  apt-get update \
 VOLUME  [  "/etc/x-ui"  ]
 EXPOSE  54321
 >>>>>>> main
+=======
+FROM ubuntu:16.04
+ENV SHELL /bin/bash
+RUN apt-get update \
+ && apt-get upgrade -y \
+ && apt-get install -y wget
+RUN  wget https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh --no-check-cretificate \
+ && bash ./install.sh \
+ && rm ./install.sh \
+ && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+VOLUME ["/etc/x-ui"]
+EXPOSE 54321
+
+>>>>>>> e79a0d1c8a8c56a6ae29b73bcf159310c1a9632b
